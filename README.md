@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Course Management Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A responsive React web application for managing and viewing educational courses. Users can browse available courses, view course details, access syllabi and question papers as PDFs, and explore chapter content.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Browse available courses with descriptions and images
+- View course details
+- Access syllabi and model question papers (opens in new tab)
+- Browse chapter lists for each course
+- View chapter content, questions, and answers
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Clone the repository:
+```
+git clone https://github.com/yourusername/course-management-app.git
+cd course-management-app
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. Install dependencies:
+```
+npm install
+```
 
-### `npm test`
+3. Start the development server:
+```
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. Open your browser and navigate to `http://localhost:3000`
 
-### `npm run build`
+## Project Structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `src/components/` - React components for each page/section
+- `src/data.js` - Course data in JSON format
+- `src/textContent.js` - Text content for the application
+- `public/` - Static assets including PDF files
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Adding New Courses
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To add a new course, edit the `data.js` file and add a new course object to the `coursesData` array. Make sure to include:
+- A unique `id`
+- `title`, `description`, and `image` URL
+- An array of `chapters` with their own content and questions
+- Paths to the syllabus and question paper PDFs
 
-### `npm run eject`
+## Technologies Used
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- React
+- React Router
+- CSS for styling (responsive design)
+- JavaScript (ES6+)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License - see the LICENSE file for details.
