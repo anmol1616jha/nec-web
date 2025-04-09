@@ -9,7 +9,7 @@ const ChapterList = () => {
   const { chapterList } = siteContent;
   
   // Find the course with the matching ID
-  const course = coursesData.find(c => c.id === parseInt(courseId));
+  const course = coursesData.find(c => c.title === courseId);
   
   // If no course is found, redirect to courses page
   if (!course) {
@@ -30,14 +30,14 @@ const ChapterList = () => {
           <div 
             key={chapter.id}
             className="chapter-item"
-            onClick={() => navigate(`/course/${course.id}/chapter/${chapter.id}`)}
+            onClick={() => navigate(`/course/${course.title}/chapter/${chapter.title}`)}
           >
             <h3>{chapter.title}</h3>
           </div>
         ))}
       </div>
       
-      <Link to={`/course/${course.id}`} className="back-link">
+      <Link to={`/course/${course.title}`} className="back-link">
         {chapterList.backButton}
       </Link>
     </div>

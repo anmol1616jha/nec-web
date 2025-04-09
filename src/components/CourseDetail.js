@@ -8,7 +8,7 @@ const CourseDetail = () => {
   const { courseDetail } = siteContent;
   
   // Find the course with the matching ID
-  const course = coursesData.find(c => c.id === parseInt(courseId));
+  const course = coursesData.find(c => c.title === courseId);
   
   // If no course is found, render a message
   if (!course) {
@@ -50,7 +50,7 @@ const CourseDetail = () => {
           </button>
           
           <Link 
-            to={`/course/${course.id}/chapters`} 
+            to={`/course/${course.title}/chapters`} 
             className="btn btn-accent"
           >
             {courseDetail.chaptersButton}

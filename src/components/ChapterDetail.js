@@ -8,7 +8,7 @@ const ChapterDetail = () => {
   const { chapterDetail } = siteContent;
   
   // Find the course with the matching ID
-  const course = coursesData.find(c => c.id === parseInt(courseId));
+  const course = coursesData.find(c => c.title === courseId);
   
   // If no course is found, render a message
   if (!course) {
@@ -21,14 +21,14 @@ const ChapterDetail = () => {
   }
   
   // Find the chapter with the matching ID
-  const chapter = course.chapters.find(ch => ch.id === parseInt(chapterId));
+  const chapter = course.chapters.find(ch => ch.title === chapterId);
   
   // If no chapter is found, render a message
   if (!chapter) {
     return (
       <div className="chapter-detail">
         <h2>Chapter Not Found</h2>
-        <Link to={`/course/${course.id}/chapters`} className="btn">
+        <Link to={`/course/${course.title}/chapters`} className="btn">
           Back to Chapters
         </Link>
       </div>
@@ -54,7 +54,7 @@ const ChapterDetail = () => {
         ))}
       </div>
       
-      <Link to={`/course/${course.id}/chapters`} className="back-link">
+      <Link to={`/course/${course.title}/chapters`} className="back-link">
         {chapterDetail.backButton}
       </Link>
     </div>

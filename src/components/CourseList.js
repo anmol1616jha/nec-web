@@ -16,7 +16,7 @@ const CourseList = () => {
       <div className="course-grid">
         {coursesData.map(course => (
           <Link 
-            to={`/course/${course.id}`} 
+            to={`/course/${course.title}`} 
             key={course.id}
             className="card"
             style={{ textDecoration: 'none' }}
