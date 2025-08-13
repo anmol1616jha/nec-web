@@ -6,12 +6,14 @@ import ChapterList from '../components/ChapterList';
 import TopicList from '../components/TopicList';
 import TopicDetails from '../components/TopicDetails';
 import PracticeQuestions from '../components/PracticeQuestions';
+import About from '../components/About';
 
 function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<CourseList />} />
       <Route path="/courses" element={<CourseList />} />
+      <Route path="/about" element={<About />} />
       <Route path="/courses/:courseTitle" element={<CourseDetails />} />
       <Route path="/courses/:courseTitle/chapters" element={<ChapterList />} />
       <Route path="/courses/:courseTitle/chapters/:chapterTitle" element={<TopicList />} />
