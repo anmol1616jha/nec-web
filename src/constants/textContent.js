@@ -18,7 +18,7 @@ export const textContent = {
     courseDetails: {
       syllabus: "Syllabus",
       modelPaper: "Model Question Paper",
-      chapters: "Chapters",
+      chapters: "Chapterwise Study Material",
       back: "Back to Courses",
     },
     chapterList: {
