@@ -44,13 +44,13 @@ function ChapterList() {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {course.chapters.map((chapter) => (
-          <div 
-            key={chapter.id} 
+          <div
+            key={chapter.id}
             className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:scale-105"
           >
             <div className="p-6">
               <h2 className="text-xl font-semibold mb-4">{chapter.title}</h2>
-              <Link 
+              <Link
                 to={`/courses/${encodeURIComponent(course.title)}/chapters/${encodeURIComponent(chapter.title)}`}
                 className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-300"
               >
@@ -59,6 +59,18 @@ function ChapterList() {
             </div>
           </div>
         ))}
+
+        <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:scale-105">
+          <div className="p-6">
+            <h2 className="text-xl font-semibold mb-4">{textContent.chapterList.practiceQuestions}</h2>
+            <Link
+              to={`/courses/${encodeURIComponent(course.title)}/practice-questions`}
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-300"
+            >
+              {textContent.chapterList.startPractice}
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

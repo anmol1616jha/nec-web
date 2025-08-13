@@ -5,7 +5,7 @@ import { textContent } from '../constants/textContent';
 import MCQSection from './MCQSection';
 
 function PracticeQuestions() {
-  const { courseTitle, chapterTitle } = useParams();
+  const { courseTitle } = useParams();
   const navigate = useNavigate();
 
   // Find the course by title
@@ -29,40 +29,21 @@ function PracticeQuestions() {
     );
   }
 
-  // Find the chapter by title
-  const chapter = course.chapters.find(ch =>
-    ch.title.toLowerCase() === decodeURIComponent(chapterTitle).toLowerCase()
+  // Gather all MCQs from all chapters and topics
+  const mcqs = course.chapters.flatMap(chapter =>
+    chapter.topics.flatMap(topic => topic.mcqs || [])
   );
-
-  // Handle chapter not found
-  if (!chapter) {
-    return (
-      <div className="text-center py-10">
-        <h1 className="text-3xl font-bold mb-4">{textContent.errors.notFound}</h1>
-        <p className="mb-6">{textContent.errors.notFoundMessage}</p>
-        <button
-          onClick={() => navigate(`/courses/${encodeURIComponent(course.title)}/chapters`)}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded"
-        >
-          {textContent.practiceQuestionsPage.backToTopics}
-        </button>
-      </div>
-    );
-  }
-
-  // Gather all MCQs from topics
-  const mcqs = chapter.topics.flatMap(topic => topic.mcqs || []);
 
   return (
     <div>
       <Link
-        to={`/courses/${encodeURIComponent(course.title)}/chapters/${encodeURIComponent(chapter.title)}`}
+        to={`/courses/${encodeURIComponent(course.title)}/chapters`}
         className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-8"
       >
         <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
         </svg>
-        {textContent.practiceQuestionsPage.backToTopics}
+        {textContent.practiceQuestionsPage.backToChapters}
       </Link>
 
       <h1 className="text-3xl font-bold mb-6">{textContent.practiceQuestionsPage.heading}</h1>

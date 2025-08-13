@@ -24,12 +24,12 @@ export const textContent = {
     chapterList: {
       heading: "Chapters",
       backToCourse: "Back to Course",
+      practiceQuestions: "Practice Question",
+      startPractice: "Start Practice",
     },
     topicList: {
       heading: "Topics",
       backToChapters: "Back to Chapters",
-      practiceQuestions: "Practice Question",
-      startPractice: "Start Practice",
     },
     topicDetails: {
       videos: "Video Lectures",
@@ -41,7 +41,7 @@ export const textContent = {
     },
     practiceQuestionsPage: {
       heading: "Practice Questions",
-      backToTopics: "Back to Topics",
+      backToChapters: "Back to Chapters",
       noQuestions: "No practice questions available.",
     },
     mcq: {
@@ -56,5 +56,5 @@ export const textContent = {
       goHome: "Go Home",
     }
   };
-  
-  export default textContent;
+
+export default textContent;
