@@ -1,41 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { coursesData } from '../data';
-import { siteContent } from '../textContent';
+import { courses } from '../data/courseData';
+import { textContent } from '../constants/textContent';
 
-const CourseList = () => {
-  const { courseList } = siteContent;
-  
+function CourseList() {
   return (
     <div>
-      <div className="course-list-header">
-        <h2>{courseList.title}</h2>
-        <p>{courseList.description}</p>
+      <div className="text-center mb-10">
+        <h1 className="text-3xl font-bold mb-2">{textContent.courseList.heading}</h1>
+        <p className="text-gray-600">{textContent.courseList.subheading}</p>
       </div>
       
-      <div className="course-grid">
-        {coursesData.map(course => (
-          <Link 
-            to={`/course/${course.id}`} 
-            key={course.id}
-            className="card"
-            style={{ textDecoration: 'none' }}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {courses.map((course) => (
+          <div 
+            key={course.id} 
+            className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:scale-105"
           >
             <img 
               src={course.image} 
               alt={course.title} 
-              className="card-image" 
+              className="w-full h-40 object-cover"
             />
-            <div className="card-content">
-              <h3 className="card-title">{course.title}</h3>
-              <p className="card-description">{course.description}</p>
-              <button className="btn">View Course</button>
+            <div className="p-6">
+              <h2 className="text-xl font-semibold mb-2">{course.title}</h2>
+              <p className="text-gray-600 mb-4">{course.description}</p>
+              <Link 
+                to={`/courses/${encodeURIComponent(course.title)}`} 
+                className="inline-block bg-[#3498db] hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-300"
+              >
+                {textContent.courseList.viewDetails}
+              </Link>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
     </div>
   );
-};
+}
 
 export default CourseList;
