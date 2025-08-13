@@ -1,3 +1,19 @@
+const defaultChapter = {
+  id: 1,
+  title: "Introduction",
+  topics: [
+    {
+      id: 1,
+      title: "Overview",
+      description: "Study materials will be added soon.",
+      videos: [],
+      pdfs: [],
+      externalLinks: [],
+      mcqs: [],
+    },
+  ],
+};
+
 export const courses = [
   {
     "id": 1,
@@ -184,6 +200,378 @@ export const courses = [
       }
     ]
   },
-  ];
-  
-  export default courses;
+  {
+    id: 2,
+    title: "Civil Engineering",
+    description: "Core concepts of civil engineering for the NEC exam.",
+    image: "https://storage-prtl-co.imgix.net/endor/articles/2915/images/1612785950_shutterstock_623894276.jpg?max-w=660&max-h=532&fit=crop&q=40",
+    syllabusLink: "/pdfs/placeholder.pdf",
+    modelQuestionPaperLink: "/pdfs/placeholder.pdf",
+    chapters: [
+      {
+        id: 1,
+        title: "Engineering Materials",
+        topics: [
+          {
+            id: 1,
+            title: "Cement and Concrete",
+            description: "Types, properties and uses of cement and concrete.",
+            videos: [],
+            pdfs: [
+              { id: 1, title: "Cement Basics", url: "/pdfs/placeholder.pdf" }
+            ],
+            externalLinks: [],
+            mcqs: [
+              {
+                id: 1,
+                question: "Which ingredient of cement contributes to strength?",
+                options: ["Lime", "Silica", "Alumina", "Gypsum"],
+                correctAnswer: "Lime",
+                explanation: "Lime (CaO) imparts strength and soundness to cement."
+              }
+            ]
+          },
+          {
+            id: 2,
+            title: "Steel and Timber",
+            description: "Properties and applications of structural steel and timber.",
+            videos: [],
+            pdfs: [],
+            externalLinks: [],
+            mcqs: []
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: "Structural Analysis",
+        topics: [
+          {
+            id: 1,
+            title: "Stress and Strain",
+            description: "Basic concepts of stress, strain and elastic constants.",
+            videos: [],
+            pdfs: [],
+            externalLinks: [],
+            mcqs: []
+          },
+          {
+            id: 2,
+            title: "Bending Moment Diagram",
+            description: "Shear force and bending moment calculations for beams.",
+            videos: [],
+            pdfs: [],
+            externalLinks: [],
+            mcqs: []
+          }
+        ]
+      }
+    ],
+  },
+  {
+    id: 3,
+    title: "Architecture",
+    description: "Fundamentals of architecture and building design.",
+    image: "https://www.arapahoe.edu/sites/default/files/styles/4x3_450x338/public/2019-06/bigstock-blueprints-and-planning-80666213-web.jpg?itok=zBHE8fAy",
+    syllabusLink: "/pdfs/placeholder.pdf",
+    modelQuestionPaperLink: "/pdfs/placeholder.pdf",
+    chapters: [
+      {
+        id: 1,
+        title: "Principles of Design",
+        topics: [
+          {
+            id: 1,
+            title: "Design Elements",
+            description: "Line, shape, texture and color in architectural design.",
+            videos: [],
+            pdfs: [],
+            externalLinks: [],
+            mcqs: []
+          },
+          {
+            id: 2,
+            title: "Building Orientation",
+            description: "Climate responsive building orientation principles.",
+            videos: [],
+            pdfs: [],
+            externalLinks: [],
+            mcqs: []
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: "Building Materials",
+        topics: [
+          {
+            id: 1,
+            title: "Sustainable Materials",
+            description: "Overview of eco-friendly building materials.",
+            videos: [],
+            pdfs: [],
+            externalLinks: [],
+            mcqs: []
+          }
+        ]
+      }
+    ],
+  },
+  {
+    id: 4,
+    title: "Electrical Engineering",
+    description: "Electrical engineering principles and practices.",
+    image: "https://student-cms.prd.timeshighereducation.com/sites/default/files/styles/default/public/istock-544560094.jpg?itok=dQjlSbim",
+    syllabusLink: "/pdfs/placeholder.pdf",
+    modelQuestionPaperLink: "/pdfs/placeholder.pdf",
+    chapters: [
+      {
+        id: 1,
+        title: "Circuit Theory",
+        topics: [
+          {
+            id: 1,
+            title: "Kirchhoff's Laws",
+            description: "Application of KCL and KVL in electric circuits.",
+            videos: [],
+            pdfs: [],
+            externalLinks: [],
+            mcqs: []
+          },
+          {
+            id: 2,
+            title: "AC Fundamentals",
+            description: "Sinusoidal waveforms and phasor representation.",
+            videos: [],
+            pdfs: [],
+            externalLinks: [],
+            mcqs: []
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: "Machines and Power",
+        topics: [
+          {
+            id: 1,
+            title: "Transformers",
+            description: "Working principle of single phase transformers.",
+            videos: [],
+            pdfs: [],
+            externalLinks: [],
+            mcqs: []
+          },
+          {
+            id: 2,
+            title: "Synchronous Machines",
+            description: "Construction and operation of synchronous generators.",
+            videos: [],
+            pdfs: [],
+            externalLinks: [],
+            mcqs: []
+          }
+        ]
+      }
+    ],
+  },
+  {
+    id: 5,
+    title: "Electronics & Communication Engineering",
+    description: "Electronics and communication systems for the NEC exam.",
+    image: "https://www.acsce.edu.in/blog/wp-content/uploads/2023/12/ACSCE-ECE.jpg",
+    syllabusLink: "/pdfs/placeholder.pdf",
+    modelQuestionPaperLink: "/pdfs/placeholder.pdf",
+    chapters: [
+      {
+        id: 1,
+        title: "Analog Electronics",
+        topics: [
+          {
+            id: 1,
+            title: "Amplifiers",
+            description: "Classification and frequency response of amplifiers.",
+            videos: [],
+            pdfs: [],
+            externalLinks: [],
+            mcqs: []
+          },
+          {
+            id: 2,
+            title: "Oscillators",
+            description: "Barkhausen criterion and common oscillator circuits.",
+            videos: [],
+            pdfs: [],
+            externalLinks: [],
+            mcqs: []
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: "Digital Communication",
+        topics: [
+          {
+            id: 1,
+            title: "Modulation Techniques",
+            description: "ASK, FSK and PSK modulation schemes.",
+            videos: [],
+            pdfs: [],
+            externalLinks: [],
+            mcqs: []
+          }
+        ]
+      }
+    ],
+  },
+  {
+    id: 6,
+    title: "Mechanical Engineering",
+    description: "Mechanical engineering topics and design.",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRpWl7UpKyEmJKjgEHAOSQFgRusge4TIMuFw&s",
+    syllabusLink: "/pdfs/placeholder.pdf",
+    modelQuestionPaperLink: "/pdfs/placeholder.pdf",
+    chapters: [
+      {
+        id: 1,
+        title: "Thermodynamics",
+        topics: [
+          {
+            id: 1,
+            title: "First Law",
+            description: "Energy conservation in closed and open systems.",
+            videos: [],
+            pdfs: [],
+            externalLinks: [],
+            mcqs: []
+          },
+          {
+            id: 2,
+            title: "Second Law",
+            description: "Entropy and Carnot efficiency.",
+            videos: [],
+            pdfs: [],
+            externalLinks: [],
+            mcqs: []
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: "Fluid Mechanics",
+        topics: [
+          {
+            id: 1,
+            title: "Bernoulli's Equation",
+            description: "Energy balance in flowing fluids.",
+            videos: [],
+            pdfs: [],
+            externalLinks: [],
+            mcqs: []
+          },
+          {
+            id: 2,
+            title: "Flow Measurement",
+            description: "Venturimeter and orifice meter principles.",
+            videos: [],
+            pdfs: [],
+            externalLinks: [],
+            mcqs: []
+          }
+        ]
+      }
+    ],
+  },
+  {
+    id: 7,
+    title: "Industrial & Manufacturing Engineering",
+    description: "Industrial processes and manufacturing systems.",
+    image: "https://www.pct.edu/sites/default/files/styles/medium_4_3_crop_/public/2019-06/man_engineer_tech_careers.jpg?itok=E0_K9PbH",
+    syllabusLink: "/pdfs/placeholder.pdf",
+    modelQuestionPaperLink: "/pdfs/placeholder.pdf",
+    chapters: [defaultChapter],
+  },
+  {
+    id: 8,
+    title: "Agricultural Engineering",
+    description: "Engineering solutions for agriculture.",
+    image: "https://www.rathinamcollege.edu.in/wp-content/uploads/2020/08/agri-blog-1.png",
+    syllabusLink: "/pdfs/placeholder.pdf",
+    modelQuestionPaperLink: "/pdfs/placeholder.pdf",
+    chapters: [defaultChapter],
+  },
+  {
+    id: 9,
+    title: "Chemical Engineering",
+    description: "Chemical processes and technologies.",
+    image: "https://cgu-odisha.ac.in/wp-content/uploads/2023/05/Chemical_Engineer_1920X10180.jpg",
+    syllabusLink: "/pdfs/placeholder.pdf",
+    modelQuestionPaperLink: "/pdfs/placeholder.pdf",
+    chapters: [defaultChapter],
+  },
+  {
+    id: 10,
+    title: "Biomedical Engineering",
+    description: "Medical devices and biological engineering.",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXWfnCyq4CnSCL0tp8AqGxy7MuBuTfKpV5Vw&s",
+    syllabusLink: "/pdfs/placeholder.pdf",
+    modelQuestionPaperLink: "/pdfs/placeholder.pdf",
+    chapters: [defaultChapter],
+  },
+  {
+    id: 11,
+    title: "Geomatics/Survey Engineering",
+    description: "Surveying and geomatics technologies.",
+    image: "https://www.sait.ca/assets/image/programs/credit-programs-600x400/pr-geomatics-engineering-technology-600x400.jpg",
+    syllabusLink: "/pdfs/placeholder.pdf",
+    modelQuestionPaperLink: "/pdfs/placeholder.pdf",
+    chapters: [defaultChapter],
+  },
+  {
+    id: 12,
+    title: "Hydropower/Water Resources Engineering",
+    description: "Hydropower and water resource management.",
+    image: "https://images.nationalgeographic.org/image/upload/t_edhub_resource_key_image/v1638886585/EducationHub/photos/picote-dam.jpg",
+    syllabusLink: "/pdfs/placeholder.pdf",
+    modelQuestionPaperLink: "/pdfs/placeholder.pdf",
+    chapters: [defaultChapter],
+  },
+  {
+    id: 13,
+    title: "Environmental Engineering",
+    description: "Environmental protection and sustainability.",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR90KSTW4rAyPOCazQniFpvnq_hN5Zp4zFyQ&s",
+    syllabusLink: "/pdfs/placeholder.pdf",
+    modelQuestionPaperLink: "/pdfs/placeholder.pdf",
+    chapters: [defaultChapter],
+  },
+  {
+    id: 14,
+    title: "Mining Engineering",
+    description: "Exploration and extraction of minerals.",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmq0gGP13fLde9d4iLMDLtTvLLMhFZUBKt2w&s",
+    syllabusLink: "/pdfs/placeholder.pdf",
+    modelQuestionPaperLink: "/pdfs/placeholder.pdf",
+    chapters: [defaultChapter],
+  },
+  {
+    id: 15,
+    title: "Automobile Engineering",
+    description: "Design and development of automobiles.",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEZsrXfeg5Tuh55VlFMfuSjTkzZCvcQeR7Mw&s",
+    syllabusLink: "/pdfs/placeholder.pdf",
+    modelQuestionPaperLink: "/pdfs/placeholder.pdf",
+    chapters: [defaultChapter],
+  },
+  {
+    id: 16,
+    title: "Metallurgical Engineering",
+    description: "Metals and material science engineering.",
+    image: "https://exploreengineering.ca/sites/default/files/2020-02/NEM_metallurgical.jpg",
+    syllabusLink: "/pdfs/placeholder.pdf",
+    modelQuestionPaperLink: "/pdfs/placeholder.pdf",
+    chapters: [defaultChapter],
+  },
+];
+
+export default courses;

@@ -18,12 +18,14 @@ export const textContent = {
     courseDetails: {
       syllabus: "Syllabus",
       modelPaper: "Model Question Paper",
-      chapters: "Chapters",
+      chapters: "Chapterwise Study Material",
       back: "Back to Courses",
     },
     chapterList: {
       heading: "Chapters",
       backToCourse: "Back to Course",
+      practiceQuestions: "Practice Question",
+      startPractice: "Start Practice",
     },
     topicList: {
       heading: "Topics",
@@ -37,6 +39,11 @@ export const textContent = {
       description: "Description",
       backToTopics: "Back to Topics",
     },
+    practiceQuestionsPage: {
+      heading: "Practice Questions",
+      backToChapters: "Back to Chapters",
+      noQuestions: "No practice questions available.",
+    },
     mcq: {
       showAnswer: "Show Answer",
       hideAnswer: "Hide Answer",
@@ -49,5 +56,5 @@ export const textContent = {
       goHome: "Go Home",
     }
   };
-  
-  export default textContent;
+
+export default textContent;

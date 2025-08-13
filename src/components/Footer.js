@@ -21,8 +21,8 @@ function Footer() {
           </div>
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-            <p>Email: info@temp.com</p>
-            <p>Phone: +1 (555) 123-4567</p>
+            <p>Email: anmol1616jha@gmail.com</p>
+            {/* <p>Phone: +1 (555) 123-4567</p> */}
           </div>
         </div>
         <div className="mt-8 pt-6 border-t border-gray-700 text-center">
