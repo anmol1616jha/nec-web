@@ -63,16 +63,16 @@ function TopicList() {
       
       <h1 className="text-3xl font-bold mb-2">{chapter.title}</h1>
       <h2 className="text-xl text-gray-600 mb-6">{textContent.topicList.heading}</h2>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {chapter.topics.map((topic) => (
-          <div 
-            key={topic.id} 
+          <div
+            key={topic.id}
             className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:scale-105"
           >
             <div className="p-6">
               <h3 className="text-lg font-semibold mb-4">{topic.title}</h3>
-              <Link 
+              <Link
                 to={`/courses/${encodeURIComponent(course.title)}/chapters/${encodeURIComponent(chapter.title)}/topics/${encodeURIComponent(topic.title)}`}
                 className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-300"
               >
