@@ -5,6 +5,7 @@ import CourseDetails from '../components/CourseDetails';
 import ChapterList from '../components/ChapterList';
 import TopicList from '../components/TopicList';
 import TopicDetails from '../components/TopicDetails';
+import PracticeQuestions from '../components/PracticeQuestions';
 
 function AppRoutes() {
   return (
@@ -14,6 +15,10 @@ function AppRoutes() {
       <Route path="/courses/:courseTitle" element={<CourseDetails />} />
       <Route path="/courses/:courseTitle/chapters" element={<ChapterList />} />
       <Route path="/courses/:courseTitle/chapters/:chapterTitle" element={<TopicList />} />
+      <Route
+        path="/courses/:courseTitle/chapters/:chapterTitle/practice-questions"
+        element={<PracticeQuestions />}
+      />
       <Route path="/courses/:courseTitle/chapters/:chapterTitle/topics/:topicTitle" element={<TopicDetails />} />
       <Route path="*" element={
         <div className="text-center py-10">

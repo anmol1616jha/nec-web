@@ -28,6 +28,8 @@ export const textContent = {
     topicList: {
       heading: "Topics",
       backToChapters: "Back to Chapters",
+      practiceQuestions: "Practice Question",
+      startPractice: "Start Practice",
     },
     topicDetails: {
       videos: "Video Lectures",
@@ -36,6 +38,11 @@ export const textContent = {
       questions: "Practice Questions",
       description: "Description",
       backToTopics: "Back to Topics",
+    },
+    practiceQuestionsPage: {
+      heading: "Practice Questions",
+      backToTopics: "Back to Topics",
+      noQuestions: "No practice questions available.",
     },
     mcq: {
       showAnswer: "Show Answer",
