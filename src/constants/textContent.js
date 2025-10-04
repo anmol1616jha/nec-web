@@ -2,7 +2,7 @@ export const textContent = {
     general: {
       appName: "Nepal Engineering Council",
       tagline: "Prepare for Nepal Engineering Council license exam with our extensive course",
-      footer: "© Anmol Jha. All rights reserved.",
+      footer: "⚙️ & 👨‍💻 By Anmol Jha",
     },
     navigation: {
       home: "Home",
@@ -13,10 +13,13 @@ export const textContent = {
     courseList: {
       heading: "Available Courses",
       subheading: "Explore our wide range of courses designed to help you crack Nepal Engineering License Exam",
-      viewDetails: "View Courses",
+      viewDetails: "View Course",
     },
     courseDetails: {
       syllabus: "Syllabus",
+      syllabusImage: "https://ik.imagekit.io/necweb/nec-web/syllabus.png?updatedAt=1759573918203",
+      chaptersImage: "https://ik.imagekit.io/necweb/nec-web/study-material.png?updatedAt=1759573918255",
+      modelPaperImage: "https://ik.imagekit.io/necweb/nec-web/model-questions.png?updatedAt=1759573918180",
       modelPaper: "Model Question Paper",
       chapters: "Chapterwise Study Material",
       back: "Back to Courses",
@@ -24,7 +27,9 @@ export const textContent = {
     chapterList: {
       heading: "Chapters",
       backToCourse: "Back to Course",
-      practiceQuestions: "Practice Question",
+      practiceQuestions: "Quiz",
+      practiceQuestionsImage: "https://ik.imagekit.io/necweb/nec-web/quiz.png",
+      chaptersImage: "https://ik.imagekit.io/necweb/nec-web/chapter.png",
       startPractice: "Start Practice",
     },
     topicList: {
