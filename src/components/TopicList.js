@@ -67,13 +67,27 @@ function TopicList() {
       <h2 className="text-xl text-gray-600 mb-6">{textContent.topicList.heading}</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <Link to={`/courses/${encodeURIComponent(course.title)}/chapters/${encodeURIComponent(chapter.title)}/practice-questions`} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:scale-105">
+          <div className="p-6">
+            <img
+              src={textContent.chapterList.practiceQuestionsImage}
+              alt={course.title}
+              className="w-full h-40 object-cover"
+            />
+            <div className="flex justify-between items-center mb-2 mt-2">
+              <h2 className="text-xl font-semibold mb-4">{textContent.chapterList.practiceQuestions}</h2>
+              <MdOutlineDoubleArrow />
+            </div>
+          </div>
+        </Link>
+
         {chapter.topics.map((topic) => (
           <Link
             key={topic.id}
             className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:scale-105"
             to={`/courses/${encodeURIComponent(course.title)}/chapters/${encodeURIComponent(chapter.title)}/topics/${encodeURIComponent(topic.title)}`}
           ><div className="p-6">
-              <ChapterImage initials={getInitials(topic.title)} />
+              <ChapterImage initials={getInitials(topic.title)} code={topic?.code || null} />
               <div className="flex justify-between items-center mb-2 mt-2">
                 <h3 className="text-lg font-semibold mb-4">{topic.title}</h3>
                 <MdOutlineDoubleArrow />

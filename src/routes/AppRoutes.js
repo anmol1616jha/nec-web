@@ -21,6 +21,10 @@ function AppRoutes() {
         path="/courses/:courseTitle/practice-questions"
         element={<PracticeQuestions />}
       />
+      <Route
+        path="/courses/:courseTitle/chapters/:chapterTitle/practice-questions"
+        element={<PracticeQuestions />}
+      />
       <Route path="/courses/:courseTitle/chapters/:chapterTitle/topics/:topicTitle" element={<TopicDetails />} />
       <Route path="*" element={
         <div className="text-center py-10">

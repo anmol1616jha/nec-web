@@ -66,7 +66,7 @@ function ChapterList() {
             to={`/courses/${encodeURIComponent(course.title)}/chapters/${encodeURIComponent(chapter.title)}`}
           >
             <div className="p-6">
-              <ChapterImage initials={getInitials(chapter.title)} />
+              <ChapterImage initials={getInitials(chapter.title)} code={chapter?.code || null} />
               <div className="flex justify-between items-center mb-2 mt-2">
               <h2 className="text-xl font-semibold mb-4">{chapter.title}</h2>
                 <MdOutlineDoubleArrow />

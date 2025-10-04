@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import { AppProvider } from './contexts/AppContext';
 import './styles/main.css';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
             <AppRoutes />
           </main>
           <Footer />
+          {/* Floating Scroll-To-Top button */}
+          <ScrollToTopButton />
         </div>
       </Router>
     </AppProvider>
