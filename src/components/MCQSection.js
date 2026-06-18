@@ -1,9 +1,12 @@
 import React from 'react';
 import { textContent } from '../constants/textContent';
 import MCQItem from './MCQItem';
+import { shuffleArray } from '../utils/helpers';
 
 function MCQSection({ mcqs }) {
   if (!mcqs || mcqs.length === 0) return null;
+
+  const shuffledMCQs = shuffleArray(mcqs);
   
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
@@ -15,7 +18,7 @@ function MCQSection({ mcqs }) {
       </h2>
       
       <div className="space-y-6">
-        {mcqs.map((mcq) => (
+        {shuffledMCQs.map((mcq) => (
           <MCQItem key={mcq.id} mcq={mcq} />
         ))}
       </div>

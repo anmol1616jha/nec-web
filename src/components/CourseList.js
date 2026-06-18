@@ -1,11 +1,20 @@
-import React from 'react';
+import { MdOutlineDoubleArrow } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { courses } from '../data/courseData';
 import { textContent } from '../constants/textContent';
+import { SITE_URL } from '../constants/seoConfig';
 
 function CourseList() {
   return (
     <div>
+      <Helmet>
+        <title>NEC Exam Preparation | Nepal Engineering Council Study Platform</title>
+        <meta name="description" content="Free study platform for the Nepal Engineering Council (NEC) licensing exam. Chapter-wise notes, MCQ practice questions, and video lectures for Civil, Computer, Electrical, and Mechanical Engineering." />
+        <meta property="og:title" content="NEC Exam Preparation | Nepal Engineering Council Study Platform" />
+        <meta property="og:description" content="Free study platform for the NEC licensing exam with MCQs, chapter notes, and video lectures." />
+        <link rel="canonical" href={`${SITE_URL}/courses`} />
+      </Helmet>
       <div className="text-center mb-10">
         <h1 className="text-3xl font-bold mb-2">{textContent.courseList.heading}</h1>
         <p className="text-gray-600">{textContent.courseList.subheading}</p>
@@ -13,9 +22,10 @@ function CourseList() {
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {courses.map((course) => (
-          <div 
+          <Link 
             key={course.id} 
             className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:scale-105"
+            to={`/courses/${encodeURIComponent(course.title)}`} 
           >
             <img 
               src={course.image} 
@@ -23,16 +33,19 @@ function CourseList() {
               className="w-full h-40 object-cover"
             />
             <div className="p-6">
-              <h2 className="text-xl font-semibold mb-2">{course.title}</h2>
+              <div className="flex justify-between items-center mb-2">
+                <h2 className="text-xl font-semibold">{course.title}</h2>
+                <MdOutlineDoubleArrow />
+              </div>
               <p className="text-gray-600 mb-4">{course.description}</p>
-              <Link 
+              {/* <Link 
                 to={`/courses/${encodeURIComponent(course.title)}`} 
                 className="inline-block bg-[#3498db] hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-300"
               >
                 {textContent.courseList.viewDetails}
-              </Link>
+              </Link> */}
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

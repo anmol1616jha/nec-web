@@ -1,5 +1,5 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useCallback, useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import CourseList from '../components/CourseList';
 import CourseDetails from '../components/CourseDetails';
 import ChapterList from '../components/ChapterList';
@@ -7,18 +7,31 @@ import TopicList from '../components/TopicList';
 import TopicDetails from '../components/TopicDetails';
 import PracticeQuestions from '../components/PracticeQuestions';
 import About from '../components/About';
+import Contact from '../components/Contact';
+import { scrollToTop } from '../utils/helpers';
 
 function AppRoutes() {
+
+  const router = useLocation();
+  useEffect(() => {
+    scrollToTop();
+  }, [router.pathname])
+  
   return (
     <Routes>
       <Route path="/" element={<CourseList />} />
       <Route path="/courses" element={<CourseList />} />
       <Route path="/about" element={<About />} />
+      <Route path="/contact" element={<Contact />} />
       <Route path="/courses/:courseTitle" element={<CourseDetails />} />
       <Route path="/courses/:courseTitle/chapters" element={<ChapterList />} />
       <Route path="/courses/:courseTitle/chapters/:chapterTitle" element={<TopicList />} />
       <Route
         path="/courses/:courseTitle/practice-questions"
+        element={<PracticeQuestions />}
+      />
+      <Route
+        path="/courses/:courseTitle/chapters/:chapterTitle/practice-questions"
         element={<PracticeQuestions />}
       />
       <Route path="/courses/:courseTitle/chapters/:chapterTitle/topics/:topicTitle" element={<TopicDetails />} />

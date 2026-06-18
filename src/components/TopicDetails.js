@@ -1,7 +1,9 @@
 import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { courses } from '../data/courseData';
 import { textContent } from '../constants/textContent';
+import { SITE_URL } from '../constants/seoConfig';
 import VideoSection from './VideoSection';
 import ResourceLinks from './ResourceLinks';
 import MCQSection from './MCQSection';
@@ -78,10 +80,32 @@ function TopicDetails() {
     window.open(url, '_blank');
   };
   
+  const topicMcqCount = topic.mcqs?.length || 0;
+
   return (
     <div>
-      <Link 
-        to={`/courses/${encodeURIComponent(course.title)}/chapters/${encodeURIComponent(chapter.title)}`} 
+      <Helmet>
+        <title>{topic.title} | {chapter.title} | NEC Exam Prep</title>
+        <meta name="description" content={`${topic.description?.slice(0, 150) || `Study ${topic.title} for the NEC licensing exam.`} ${topicMcqCount > 0 ? `Includes ${topicMcqCount} practice MCQs.` : ''}`} />
+        <meta property="og:title" content={`${topic.title} | ${chapter.title} | NEC Exam Prep`} />
+        <meta property="og:description" content={topic.description?.slice(0, 200) || `Study ${topic.title} for the NEC licensing exam.`} />
+        <link rel="canonical" href={`${SITE_URL}/courses/${encodeURIComponent(course.title)}/chapters/${encodeURIComponent(chapter.title)}/topics/${encodeURIComponent(topic.title)}`} />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LearningResource",
+          "name": topic.title,
+          "description": topic.description,
+          "educationalLevel": "Professional",
+          "learningResourceType": "Study Guide",
+          "isPartOf": {
+            "@type": "Course",
+            "name": course.title,
+            "provider": { "@type": "Organization", "name": "Nepal Engineering Council" }
+          }
+        })}</script>
+      </Helmet>
+      <Link
+        to={`/courses/${encodeURIComponent(course.title)}/chapters/${encodeURIComponent(chapter.title)}`}
         className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-8"
       >
         <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
