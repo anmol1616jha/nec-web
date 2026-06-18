@@ -7,8 +7,6 @@ export const isStringEmpty = (data) => {
         data === undefined ||
         data === ''
     ) {
-        console.log('string empty');
-
         return true;
     }
 
@@ -38,21 +36,29 @@ export const getInitials = (name) => {
 }
 
 export const getRandomBetween = (minNumber = 0, maxNumber = 9) => {
-  // Check if inputs are valid integers and max > min
-  if (!Number.isInteger(minNumber) || !Number.isInteger(maxNumber) || maxNumber <= minNumber) {
-    return 0;
-  }
+    // Check if inputs are valid integers and max > min
+    if (!Number.isInteger(minNumber) || !Number.isInteger(maxNumber) || maxNumber <= minNumber) {
+        return 0;
+    }
 
-  // Generate random integer between minNumber and maxNumber (inclusive)
-  const random = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
-  return random;
+    // Generate random integer between minNumber and maxNumber (inclusive)
+    const random = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
+    return random;
 }
 
 export const shuffleArray = (array) => {
-  const shuffled = [...array]; // create a copy to avoid mutating original
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
+    const shuffled = [...array]; // create a copy to avoid mutating original
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
 };
+
+export const scrollToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+};
+

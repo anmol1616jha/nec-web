@@ -1,8 +1,10 @@
 import { MdOutlineDoubleArrow } from 'react-icons/md';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { courses } from '../data/courseData';
 import { textContent } from '../constants/textContent';
 import { getInitials } from '../utils/helpers';
+import { SITE_URL } from '../constants/seoConfig';
 import ChapterImage from './ChapterImage';
 
 function TopicList() {
@@ -53,6 +55,12 @@ function TopicList() {
 
   return (
     <div>
+      <Helmet>
+        <title>{chapter.title} | {course.title} | NEC Exam Preparation</title>
+        <meta name="description" content={`Topics in ${chapter.title} for ${course.title} — NEC licensing exam preparation. Includes study materials, video lectures, and MCQ practice questions.`} />
+        <meta property="og:title" content={`${chapter.title} | ${course.title} | NEC Exam Prep`} />
+        <link rel="canonical" href={`${SITE_URL}/courses/${encodeURIComponent(course.title)}/chapters/${encodeURIComponent(chapter.title)}`} />
+      </Helmet>
       <Link
         to={`/courses/${encodeURIComponent(course.title)}/chapters`}
         className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-8"

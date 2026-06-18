@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { courses } from '../data/courseData';
 import { textContent } from '../constants/textContent';
 import MCQSection from './MCQSection';
@@ -53,8 +54,15 @@ function PracticeQuestions() {
   );
   }
 
+  const pageTitle = isStringEmpty(chapterTitle) ? course.title : decodeURIComponent(chapterTitle);
+
   return (
     <div>
+      <Helmet>
+        <title>Practice Questions — {pageTitle} | NEC Exam Prep</title>
+        <meta name="description" content={`${mcqs.length} MCQ practice questions for ${pageTitle} — Nepal Engineering Council licensing exam preparation. Test your knowledge with answers and explanations.`} />
+        <meta property="og:title" content={`Practice Questions — ${pageTitle} | NEC Exam Prep`} />
+      </Helmet>
       <Link
         to={backLink}
         className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-8"

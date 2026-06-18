@@ -1,4 +1,6 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
+import { SITE_URL } from '../constants/seoConfig';
 
 function About() {
   const features = [
@@ -21,6 +23,12 @@ function About() {
 
   return (
     <div className="bg-gray-100 py-10">
+      <Helmet>
+        <title>About | NEC Exam Preparation</title>
+        <meta name="description" content="NEC Exam Companion is a free study platform built by Anmol Jha to help engineers prepare for the Nepal Engineering Council licensing exam." />
+        <meta property="og:title" content="About | NEC Exam Preparation" />
+        <link rel="canonical" href={`${SITE_URL}/about`} />
+      </Helmet>
       <div className="container mx-auto px-4">
         <div className="bg-white shadow-md rounded-lg p-6 md:p-10">
           <h1 className="text-3xl font-bold mb-4 text-[#2c3e50]">About This Site</h1>

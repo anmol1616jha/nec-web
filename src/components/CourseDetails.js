@@ -1,7 +1,9 @@
 import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { courses } from '../data/courseData';
 import { textContent } from '../constants/textContent';
+import { SITE_URL } from '../constants/seoConfig';
 
 function CourseDetails() {
   const { courseTitle } = useParams();
@@ -35,6 +37,14 @@ function CourseDetails() {
 
   return (
     <div>
+      <Helmet>
+        <title>{course.title} | NEC Exam Preparation</title>
+        <meta name="description" content={`Study ${course.title} for the Nepal Engineering Council licensing exam. Access chapter-wise notes, syllabus, MCQ practice questions, and video lectures.`} />
+        <meta property="og:title" content={`${course.title} | NEC Exam Preparation`} />
+        <meta property="og:description" content={course.description} />
+        <meta property="og:image" content={course.image} />
+        <link rel="canonical" href={`${SITE_URL}/courses/${encodeURIComponent(course.title)}`} />
+      </Helmet>
       <Link
         to="/courses"
         className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-8"

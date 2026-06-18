@@ -1,11 +1,20 @@
 import { MdOutlineDoubleArrow } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { courses } from '../data/courseData';
 import { textContent } from '../constants/textContent';
+import { SITE_URL } from '../constants/seoConfig';
 
 function CourseList() {
   return (
     <div>
+      <Helmet>
+        <title>NEC Exam Preparation | Nepal Engineering Council Study Platform</title>
+        <meta name="description" content="Free study platform for the Nepal Engineering Council (NEC) licensing exam. Chapter-wise notes, MCQ practice questions, and video lectures for Civil, Computer, Electrical, and Mechanical Engineering." />
+        <meta property="og:title" content="NEC Exam Preparation | Nepal Engineering Council Study Platform" />
+        <meta property="og:description" content="Free study platform for the NEC licensing exam with MCQs, chapter notes, and video lectures." />
+        <link rel="canonical" href={`${SITE_URL}/courses`} />
+      </Helmet>
       <div className="text-center mb-10">
         <h1 className="text-3xl font-bold mb-2">{textContent.courseList.heading}</h1>
         <p className="text-gray-600">{textContent.courseList.subheading}</p>
