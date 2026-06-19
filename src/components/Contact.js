@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { FaEnvelope, FaGithub, FaGlobe, FaPaperPlane, FaCheckCircle } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaEnvelope, FaGithub, FaGlobe } from 'react-icons/fa';
+import { HiPaperAirplane, HiCheckCircle, HiChatBubbleLeftRight } from 'react-icons/hi2';
 import { SITE_URL } from '../constants/seoConfig';
+import PageWrapper from './ui/PageWrapper';
 
 const contactLinks = [
   {
@@ -9,35 +12,45 @@ const contactLinks = [
     label: 'Email',
     value: 'anmol1616jha@gmail.com',
     href: 'mailto:anmol1616jha@gmail.com',
-    color: 'text-blue-600',
-    bg: 'bg-blue-50',
+    bg: 'bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400',
   },
   {
     icon: <FaGithub />,
     label: 'GitHub',
     value: 'github.com/anmol1616jha',
     href: 'https://github.com/anmol1616jha',
-    color: 'text-gray-800',
-    bg: 'bg-gray-100',
+    bg: 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300',
   },
   {
     icon: <FaGlobe />,
     label: 'Portfolio',
     value: 'anmol1616jha.netlify.app',
     href: 'https://anmol1616jha.netlify.app',
-    color: 'text-[#ad6d9b]',
-    bg: 'bg-purple-50',
+    bg: 'bg-accent-50 dark:bg-accent-900/30 text-accent-600 dark:text-accent-400',
   },
 ];
 
-function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
+const reachOutItems = [
+  'Incorrect MCQ answer or explanation',
+  'Suggest a missing topic or chapter',
+  'Broken link or resource',
+  'General feedback or ideas',
+];
 
-  const handleChange = (e) => {
-    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
-  };
+function InputLabel({ children, required }) {
+  return (
+    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+      {children}{required && <span className="text-red-400 ml-0.5">*</span>}
+    </label>
+  );
+}
+
+function Contact() {
+  const [form, setForm]           = useState({ name: '', email: '', subject: '', message: '' });
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading]     = useState(false);
+
+  const handleChange = (e) => setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -55,117 +68,98 @@ function Contact() {
     setSubmitted(false);
   };
 
+  const inputClass = 'input-base w-full';
+
   return (
-    <div className="bg-gray-100 py-10">
+    <PageWrapper>
       <Helmet>
-        <title>Contact | NEC Exam Preparation</title>
-        <meta name="description" content="Get in touch with the NEC Exam Prep team. Send feedback, report errors, or suggest new topics for the Nepal Engineering Council exam preparation platform." />
-        <meta property="og:title" content="Contact | NEC Exam Preparation" />
+        <title>Contact | Nepal Engineering Council (NEC) Exam Preparation</title>
+        <meta name="description" content="Contact the Nepal Engineering Council (NEC) Exam Prep team. Send feedback, report errors, or suggest new topics for the free NEC licensing exam study platform." />
+        <meta property="og:title" content="Contact | Nepal Engineering Council Exam Prep" />
         <link rel="canonical" href={`${SITE_URL}/contact`} />
       </Helmet>
 
-      <div className="container mx-auto px-4 max-w-5xl">
-
-        {/* Page header */}
-        <div className="text-center mb-10">
-          <h1 className="text-3xl font-bold text-[#2c3e50] mb-3">Get in Touch</h1>
-          <p className="text-gray-600 max-w-xl mx-auto">
-            Have feedback, found an error, or want to suggest a new topic?<br />I'd love to hear from you.
-          </p>
+      {/* Page header */}
+      <div className="mb-10 max-w-xl">
+        <div className="flex items-center gap-3 mb-3">
+          <div className="bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 p-2.5 rounded-xl">
+            <HiChatBubbleLeftRight className="w-6 h-6" />
+          </div>
+          <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-slate-50">Get in Touch</h1>
         </div>
+        <p className="text-slate-500 dark:text-slate-400 leading-relaxed">
+          Have feedback, found an error, or want to suggest a topic? I'd love to hear from you.
+        </p>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
 
-          {/* ── Contact form ── */}
-          <div className="md:col-span-2 bg-white rounded-lg shadow-md p-6 md:p-8">
-            <h2 className="text-xl font-semibold text-[#2c3e50] mb-6">Send a Message</h2>
+        {/* ── Contact form ── */}
+        <div className="lg:col-span-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-card p-6 md:p-8">
+          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-50 mb-6">Send a Message</h2>
 
+          <AnimatePresence mode="wait">
             {submitted ? (
-              <div className="text-center py-10">
-                <FaCheckCircle className="text-green-500 text-5xl mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Message Sent!</h3>
-                <p className="text-gray-600 mb-6">
-                  Your email client should have opened. Thanks for reaching out!
+              <motion.div
+                key="success"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{   opacity: 0, y: 10 }}
+                className="flex flex-col items-center text-center py-12"
+              >
+                <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 rounded-2xl flex items-center justify-center mb-5">
+                  <HiCheckCircle className="w-9 h-9" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50 mb-2">Message Sent!</h3>
+                <p className="text-slate-500 dark:text-slate-400 mb-6 max-w-sm">
+                  Your email client should have opened. Thanks for reaching out — I'll get back to you soon.
                 </p>
                 <button
                   onClick={handleReset}
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-300"
+                  className="bg-primary-600 hover:bg-primary-700 text-white font-semibold py-2.5 px-6 rounded-xl transition-colors text-sm"
                 >
                   Send Another
                 </button>
-              </div>
+              </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <motion.form
+                key="form"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{   opacity: 0 }}
+                onSubmit={handleSubmit}
+                className="space-y-5"
+              >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Full Name <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={form.name}
-                      onChange={handleChange}
-                      required
-                      placeholder="Your name"
-                      className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                    />
+                    <InputLabel required>Full Name</InputLabel>
+                    <input type="text" name="name" value={form.name} onChange={handleChange} required placeholder="Your name" className={inputClass} />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Email Address <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={form.email}
-                      onChange={handleChange}
-                      required
-                      placeholder="you@example.com"
-                      className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                    />
+                    <InputLabel required>Email Address</InputLabel>
+                    <input type="email" name="email" value={form.email} onChange={handleChange} required placeholder="you@example.com" className={inputClass} />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Subject <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={form.subject}
-                    onChange={handleChange}
-                    required
-                    placeholder="Feedback / Error Report / Topic Suggestion"
-                    className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                  />
+                  <InputLabel required>Subject</InputLabel>
+                  <input type="text" name="subject" value={form.subject} onChange={handleChange} required placeholder="Feedback / Error Report / Suggestion" className={inputClass} />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Message <span className="text-red-500">*</span>
-                  </label>
-                  <textarea
-                    name="message"
-                    value={form.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
-                    placeholder="Write your message here..."
-                    className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-none"
-                  />
+                  <InputLabel required>Message</InputLabel>
+                  <textarea name="message" value={form.message} onChange={handleChange} required rows={5} placeholder="Write your message here..." className={`${inputClass} resize-none`} />
                 </div>
 
                 <div className="flex items-center gap-3">
                   <button
                     type="submit"
                     disabled={loading}
-                    className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-medium py-2.5 px-6 rounded-lg transition-colors duration-300"
+                    className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 text-white font-semibold py-2.5 px-6 rounded-xl transition-colors text-sm"
                   >
                     {loading ? (
                       <>
-                        <svg className="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <svg className="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24">
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
                         </svg>
@@ -173,74 +167,66 @@ function Contact() {
                       </>
                     ) : (
                       <>
-                        <FaPaperPlane />
+                        <HiPaperAirplane className="w-4 h-4" />
                         Send Message
                       </>
                     )}
                   </button>
-                  <p className="text-xs text-gray-400">Opens your email client</p>
+                  <p className="text-xs text-slate-400 dark:text-slate-500">Opens your email client</p>
                 </div>
-              </form>
+              </motion.form>
             )}
+          </AnimatePresence>
+        </div>
+
+        {/* ── Sidebar ── */}
+        <div className="flex flex-col gap-4">
+
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-card p-6">
+            <h2 className="text-base font-bold text-slate-900 dark:text-slate-50 mb-4">Contact Info</h2>
+            <div className="space-y-4">
+              {contactLinks.map(({ icon, label, value, href, bg }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith('mailto') ? '_self' : '_blank'}
+                  rel="noopener noreferrer"
+                  className="group flex items-start gap-3"
+                >
+                  <span className={`${bg} p-2.5 rounded-xl text-base mt-0.5 flex-shrink-0 group-hover:scale-105 transition-transform`}>
+                    {icon}
+                  </span>
+                  <div className="min-w-0">
+                    <p className="text-xs text-slate-400 dark:text-slate-500 font-medium uppercase tracking-wide">{label}</p>
+                    <p className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors break-all">{value}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* ── Contact info sidebar ── */}
-          <div className="flex flex-col gap-4">
-
-            {/* Links card */}
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h2 className="text-lg font-semibold text-[#2c3e50] mb-5">Contact Info</h2>
-              <div className="space-y-4">
-                {contactLinks.map(({ icon, label, value, href, color, bg }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target={href.startsWith('mailto') ? '_self' : '_blank'}
-                    rel="noopener noreferrer"
-                    className="flex items-start gap-3 group"
-                  >
-                    <span className={`${bg} ${color} p-2.5 rounded-lg text-base mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-200`}>
-                      {icon}
-                    </span>
-                    <div className="min-w-0">
-                      <p className="text-xs text-gray-400 font-medium uppercase tracking-wide">{label}</p>
-                      <p className={`text-sm font-medium ${color} group-hover:underline break-all`}>{value}</p>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* Response time card */}
-            <div className="bg-[#2c3e50] text-white rounded-lg shadow-md p-6">
-              <h3 className="font-semibold mb-2">Response Time</h3>
-              <p className="text-gray-300 text-sm leading-relaxed">
-                Typically replies within 1–2 days. For quick issues, feel free to open a ticket on GitHub.
-              </p>
-            </div>
-
-            {/* What to ask card */}
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h3 className="font-semibold text-[#2c3e50] mb-3">What to reach out about</h3>
-              <ul className="space-y-2 text-sm text-gray-600">
-                {[
-                  'Incorrect MCQ answer or explanation',
-                  'Suggest a missing topic or chapter',
-                  'Broken link or resource',
-                  'General feedback',
-                ].map(item => (
-                  <li key={item} className="flex items-start gap-2">
-                    <span className="text-[#ad6d9b] mt-0.5 flex-shrink-0">✦</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
+          <div className="bg-gradient-to-br from-primary-600 to-accent-600 text-white rounded-2xl p-6">
+            <h3 className="font-bold mb-2">Response Time</h3>
+            <p className="text-primary-100 text-sm leading-relaxed">
+              Typically replies within 1–2 days. For quick issues, open a ticket on GitHub.
+            </p>
           </div>
+
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-card p-6">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-slate-50 mb-3">What to reach out about</h3>
+            <ul className="space-y-2">
+              {reachOutItems.map(item => (
+                <li key={item} className="flex items-start gap-2 text-sm text-slate-500 dark:text-slate-400">
+                  <span className="text-accent-500 mt-0.5 flex-shrink-0">✦</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
         </div>
       </div>
-    </div>
+    </PageWrapper>
   );
 }
 

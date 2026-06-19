@@ -1,110 +1,133 @@
-import { MdOutlineDoubleArrow } from 'react-icons/md';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { motion } from 'framer-motion';
+import { HiArrowRight, HiClipboardDocumentList, HiVideoCamera, HiLink } from 'react-icons/hi2';
 import { courses } from '../data/courseData';
-import { textContent } from '../constants/textContent';
-import { getInitials } from '../utils/helpers';
 import { SITE_URL } from '../constants/seoConfig';
-import ChapterImage from './ChapterImage';
+import { ROUTES } from '../constants/routes';
+import { containerVariants, itemVariants } from '../constants/animations';
+import PageWrapper from './ui/PageWrapper';
+import Breadcrumb from './ui/Breadcrumb';
+import EmptyState from './ui/EmptyState';
+import Button from './ui/Button';
+import Badge from './ui/Badge';
 
 function TopicList() {
   const { courseTitle, chapterTitle } = useParams();
   const navigate = useNavigate();
 
-  // Find the course by title
-  const course = courses.find(c =>
-    c.title.toLowerCase() === decodeURIComponent(courseTitle).toLowerCase()
-  );
+  const course  = courses.find(c => c.title.toLowerCase() === decodeURIComponent(courseTitle).toLowerCase());
+  const chapter = course?.chapters.find(ch => ch.title.toLowerCase() === decodeURIComponent(chapterTitle).toLowerCase());
 
-  // Handle course not found
-  if (!course) {
+  if (!course || !chapter) {
     return (
-      <div className="text-center py-10">
-        <h1 className="text-3xl font-bold mb-4">{textContent.errors.notFound}</h1>
-        <p className="mb-6">{textContent.errors.notFoundMessage}</p>
-        <button
-          onClick={() => navigate('/courses')}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded"
-        >
-          {textContent.errors.goHome}
-        </button>
-      </div>
+      <PageWrapper>
+        <EmptyState
+          title="Chapter Not Found"
+          description="We couldn't locate that chapter."
+          action={<Button onClick={() => navigate(ROUTES.COURSES)}>All Courses</Button>}
+        />
+      </PageWrapper>
     );
   }
 
-  // Find the chapter by title
-  const chapter = course.chapters.find(ch =>
-    ch.title.toLowerCase() === decodeURIComponent(chapterTitle).toLowerCase()
-  );
-
-  // Handle chapter not found
-  if (!chapter) {
-    return (
-      <div className="text-center py-10">
-        <h1 className="text-3xl font-bold mb-4">{textContent.errors.notFound}</h1>
-        <p className="mb-6">{textContent.errors.notFoundMessage}</p>
-        <button
-          onClick={() => navigate(`/courses/${encodeURIComponent(course.title)}/chapters`)}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded"
-        >
-          Back to Chapters
-        </button>
-      </div>
-    );
-  }
+  const topics   = chapter.topics || [];
+  const mcqCount = topics.reduce((s, t) => s + (t.mcqs?.length || 0), 0);
 
   return (
-    <div>
+    <PageWrapper>
       <Helmet>
-        <title>{chapter.title} | {course.title} | NEC Exam Preparation</title>
-        <meta name="description" content={`Topics in ${chapter.title} for ${course.title} — NEC licensing exam preparation. Includes study materials, video lectures, and MCQ practice questions.`} />
-        <meta property="og:title" content={`${chapter.title} | ${course.title} | NEC Exam Prep`} />
-        <link rel="canonical" href={`${SITE_URL}/courses/${encodeURIComponent(course.title)}/chapters/${encodeURIComponent(chapter.title)}`} />
+        <title>{chapter.title} | {course.title} — Nepal Engineering Council Exam</title>
+        <meta name="description" content={`Study ${chapter.title} topics for ${course.title} — Nepal Engineering Council (NEC) licensing exam. Includes notes, video lectures, and MCQ practice questions.`} />
+        <meta property="og:title" content={`${chapter.title} | ${course.title} — Nepal Engineering Council Exam`} />
+        <link rel="canonical" href={`${SITE_URL}${ROUTES.topicList(course.title, chapter.title)}`} />
       </Helmet>
-      <Link
-        to={`/courses/${encodeURIComponent(course.title)}/chapters`}
-        className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-8"
-      >
-        <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-        </svg>
-        {textContent.topicList.backToChapters}
-      </Link>
 
-      <h1 className="text-3xl font-bold mb-2">{chapter.title}</h1>
-      <h2 className="text-xl text-gray-600 mb-6">{textContent.topicList.heading}</h2>
+      <Breadcrumb items={[
+        { label: 'Courses', href: ROUTES.COURSES },
+        { label: course.title, href: ROUTES.courseDetail(course.title) },
+        { label: 'Chapters', href: ROUTES.chapters(course.title) },
+        { label: chapter.title },
+      ]} />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-        <Link to={`/courses/${encodeURIComponent(course.title)}/chapters/${encodeURIComponent(chapter.title)}/practice-questions`} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:scale-105">
-          <div className="p-6">
-            <img
-              src={textContent.chapterList.practiceQuestionsImage}
-              alt={course.title}
-              className="w-full h-40 object-cover"
-            />
-            <div className="flex justify-between items-center mb-2 mt-2">
-              <h2 className="text-xl font-semibold mb-4">{textContent.chapterList.practiceQuestions}</h2>
-              <MdOutlineDoubleArrow />
-            </div>
-          </div>
-        </Link>
-
-        {chapter.topics.map((topic) => (
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-8">
+        <div className="flex-1">
+          <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-slate-50 leading-tight">
+            {chapter.title}
+          </h1>
+          <p className="text-slate-500 dark:text-slate-400 text-sm mt-1.5">
+            {topics.length} topic{topics.length !== 1 ? 's' : ''} · {mcqCount} MCQs
+          </p>
+        </div>
+        {mcqCount > 0 && (
           <Link
-            key={topic.id}
-            className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:scale-105"
-            to={`/courses/${encodeURIComponent(course.title)}/chapters/${encodeURIComponent(chapter.title)}/topics/${encodeURIComponent(topic.title)}`}
-          ><div className="p-6">
-              <ChapterImage initials={getInitials(topic.title)} code={topic?.code || null} />
-              <div className="flex justify-between items-center mb-2 mt-2">
-                <h3 className="text-lg font-semibold mb-4">{topic.title}</h3>
-                <MdOutlineDoubleArrow />
-              </div>
-            </div>
+            to={ROUTES.chapterQuiz(course.title, chapter.title)}
+            className="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-600 text-white font-semibold px-4 py-2.5 rounded-xl text-sm transition-colors shadow-sm self-start"
+          >
+            <HiClipboardDocumentList className="w-4 h-4" />
+            Chapter Quiz
           </Link>
-        ))}
+        )}
       </div>
-    </div>
+
+      {topics.length === 0 ? (
+        <EmptyState icon="📖" title="No topics yet" description="Topics for this chapter are coming soon." />
+      ) : (
+        <motion.div
+          className="space-y-3"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {topics.map((topic, idx) => {
+            const hasVideo = topic.videos?.length > 0;
+            const hasLinks = topic.externalLinks?.length > 0 || topic.pdfs?.length > 0;
+            return (
+              <motion.div key={topic.id || idx} variants={itemVariants}>
+                <Link
+                  to={ROUTES.topicDetail(course.title, chapter.title, topic.title)}
+                  className="group flex items-center gap-4 bg-white dark:bg-slate-900
+                    border border-slate-200 dark:border-slate-800 rounded-2xl p-5
+                    hover:border-primary-200 dark:hover:border-primary-800
+                    hover:shadow-card-hover transition-all duration-200"
+                >
+                  <div className="flex-shrink-0 w-9 h-9 rounded-xl
+                    bg-slate-100 dark:bg-slate-800
+                    text-slate-500 dark:text-slate-400
+                    flex items-center justify-center text-xs font-bold">
+                    {idx + 1}
+                  </div>
+
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-semibold text-slate-900 dark:text-slate-50 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                      {topic.title}
+                    </h3>
+                    <div className="flex flex-wrap gap-2 mt-1.5">
+                      {topic.mcqs?.length > 0 && (
+                        <Badge variant="primary" className="text-xs">{topic.mcqs.length} MCQs</Badge>
+                      )}
+                      {hasVideo && (
+                        <span className="inline-flex items-center gap-1 text-xs text-accent-600 dark:text-accent-400">
+                          <HiVideoCamera className="w-3.5 h-3.5" /> Video
+                        </span>
+                      )}
+                      {hasLinks && (
+                        <span className="inline-flex items-center gap-1 text-xs text-slate-400 dark:text-slate-500">
+                          <HiLink className="w-3.5 h-3.5" /> Resources
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  <HiArrowRight className="w-5 h-5 text-slate-300 dark:text-slate-600 group-hover:text-primary-500 group-hover:translate-x-0.5 transition-all flex-shrink-0" />
+                </Link>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      )}
+    </PageWrapper>
   );
 }
 
