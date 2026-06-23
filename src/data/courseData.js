@@ -1,5 +1,5 @@
-import { additionalComputerScienceChapters } from './csChaptersData';
-import { additionalCivilEngineeringChapters } from './civilEngineringChaptersData';
+import { additionalComputerScienceChapters } from './csChaptersData.js';
+import { additionalCivilEngineeringChapters } from './civilEngineringChaptersData.js';
 
 export const courses = [
   {

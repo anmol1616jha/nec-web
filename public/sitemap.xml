@@ -2,355 +2,679 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://necexamprep.com/</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/about</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Civil%20Engineering</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Civil%20Engineering/practice-questions</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Basic%20Civil%20Engineering</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Basic%20Civil%20Engineering/practice-questions</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Basic%20Civil%20Engineering/topics/Engineering%20materials</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Basic%20Civil%20Engineering/topics/Steel%20and%20Timber</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Structural%20Analysis</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Structural%20Analysis/practice-questions</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Structural%20Analysis/topics/Stress%20and%20Strain</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Structural%20Analysis/topics/Bending%20Moment%20Diagram</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Surveying%20and%20Levelling</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Surveying%20and%20Levelling/practice-questions</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Surveying%20and%20Levelling/topics/Principles%20of%20Surveying</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Surveying%20and%20Levelling/topics/Levelling%20and%20Contouring</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Surveying%20and%20Levelling/topics/Traverse%20and%20Triangulation</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Surveying%20and%20Levelling/topics/Remote%20Sensing%20and%20GIS%20Basics</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Engineering%20Mechanics</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Engineering%20Mechanics/practice-questions</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Engineering%20Mechanics/topics/Statics%20and%20Force%20Systems</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Engineering%20Mechanics/topics/Kinematics%20and%20Dynamics</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Engineering%20Mechanics/topics/Stress%20and%20Strain</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Engineering%20Mechanics/topics/Centre%20of%20Gravity%20and%20Moment%20of%20Inertia</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Strength%20of%20Materials</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Strength%20of%20Materials/practice-questions</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Strength%20of%20Materials/topics/Tensile%20and%20Compressive%20Strength</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Strength%20of%20Materials/topics/Bending%20and%20Shear</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Strength%20of%20Materials/topics/Torsion</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Civil%20Engineering/chapters/Strength%20of%20Materials/topics/Pressure%20Vessels%20and%20Columns</loc>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Computer%20Engineering</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Computer%20Engineering/practice-questions</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Concept%20of%20Basic%20Electrical%20and%20Electronics%20Engineering</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Concept%20of%20Basic%20Electrical%20and%20Electronics%20Engineering/practice-questions</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Concept%20of%20Basic%20Electrical%20and%20Electronics%20Engineering/topics/Basic%20concept</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Concept%20of%20Basic%20Electrical%20and%20Electronics%20Engineering/topics/Network%20theorems</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Concept%20of%20Basic%20Electrical%20and%20Electronics%20Engineering/topics/Alternating%20current%20fundamentals</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Concept%20of%20Basic%20Electrical%20and%20Electronics%20Engineering/topics/Semiconductor%20devices</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Concept%20of%20Basic%20Electrical%20and%20Electronics%20Engineering/topics/Signal%20generator</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Digital%20Logic%20and%20Microprocessor</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Digital%20Logic%20and%20Microprocessor/practice-questions</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Digital%20Logic%20and%20Microprocessor/topics/Digital%20Logic%20Fundamentals</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Digital%20Logic%20and%20Microprocessor/topics/Combinational%20Logic%20Circuits</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Digital%20Logic%20and%20Microprocessor/topics/Sequential%20Logic%20Circuits</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Digital%20Logic%20and%20Microprocessor/topics/Microprocessor%20Architecture%20and%20Bus%20Structure</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Digital%20Logic%20and%20Microprocessor/topics/Microprocessor%20Addressing%20Modes%20and%20Instruction%20Set</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Programming%20Language%20and%20Its%20Applications</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Programming%20Language%20and%20Its%20Applications/practice-questions</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Programming%20Language%20and%20Its%20Applications/topics/Introduction%20to%20C%20programming</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Programming%20Language%20and%20Its%20Applications/topics/Pointers%2C%20structure%20and%20data%20files%20in%20C%20programming</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Programming%20Language%20and%20Its%20Applications/topics/C%2B%2B%20language%20constructs%20with%20objects%20and%20classes</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Programming%20Language%20and%20Its%20Applications/topics/Features%20of%20object-oriented%20programming</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Computer%20Architecture%20and%20Organization</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Computer%20Architecture%20and%20Organization/practice-questions</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Computer%20Architecture%20and%20Organization/topics/Computer%20Organization%20and%20CPU%20Design</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Computer%20Architecture%20and%20Organization/topics/Memory%20Organization%20and%20Hierarchy</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Computer%20Architecture%20and%20Organization/topics/I%2FO%20Organization%20and%20Interfacing</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Computer%20Architecture%20and%20Organization/topics/Pipelining%20and%20Parallel%20Processing</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Data%20Structure%20and%20Algorithm</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Data%20Structure%20and%20Algorithm/practice-questions</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Data%20Structure%20and%20Algorithm/topics/Arrays%2C%20Linked%20Lists%2C%20Stacks%20and%20Queues</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Data%20Structure%20and%20Algorithm/topics/Trees%20and%20Binary%20Search%20Trees</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Data%20Structure%20and%20Algorithm/topics/Graphs%20and%20Graph%20Algorithms</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Data%20Structure%20and%20Algorithm/topics/Sorting%20and%20Searching%20Algorithms</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Operating%20System</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Operating%20System/practice-questions</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Operating%20System/topics/Process%20Management%20and%20CPU%20Scheduling</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Operating%20System/topics/Memory%20Management%20and%20Virtual%20Memory</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Operating%20System/topics/File%20System%20and%20Disk%20Scheduling</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Operating%20System/topics/Deadlocks%20and%20Synchronization</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Database%20Management%20System</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Database%20Management%20System/practice-questions</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Database%20Management%20System/topics/ER%20Model%20and%20Relational%20Data%20Model</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Database%20Management%20System/topics/SQL%20and%20Query%20Optimization</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Database%20Management%20System/topics/Normalization%20and%20Functional%20Dependencies</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Database%20Management%20System/topics/Transaction%20Management%20and%20Concurrency%20Control</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Computer%20Networks%20and%20Security</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Computer%20Networks%20and%20Security/practice-questions</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Computer%20Networks%20and%20Security/topics/Network%20Models%20and%20Data%20Communication</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Computer%20Networks%20and%20Security/topics/Data%20Link%20and%20Network%20Layer</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Computer%20Networks%20and%20Security/topics/Transport%20and%20Application%20Layer</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Computer%20Networks%20and%20Security/topics/Network%20Security%20and%20Cryptography</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Software%20Engineering</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Software%20Engineering/practice-questions</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Software%20Engineering/topics/Software%20Development%20Life%20Cycle%20and%20Models</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Software%20Engineering/topics/Requirement%20Engineering%20and%20System%20Design</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Software%20Engineering/topics/Software%20Testing%20and%20Quality%20Assurance</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://necexamprep.com/courses/Computer%20Engineering/chapters/Software%20Engineering/topics/Software%20Project%20Management%20and%20Metrics</loc>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Electrical%20Engineering</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Electrical%20Engineering/chapters</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Electrical%20Engineering/practice-questions</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Electrical%20Engineering/chapters/Circuit%20Theory</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Electrical%20Engineering/chapters/Circuit%20Theory/practice-questions</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Electrical%20Engineering/chapters/Circuit%20Theory/topics/Kirchhoff's%20Laws</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Electrical%20Engineering/chapters/Circuit%20Theory/topics/AC%20Fundamentals</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Electrical%20Engineering/chapters/Machines%20and%20Power</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Electrical%20Engineering/chapters/Machines%20and%20Power/practice-questions</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Electrical%20Engineering/chapters/Machines%20and%20Power/topics/Transformers</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Electrical%20Engineering/chapters/Machines%20and%20Power/topics/Synchronous%20Machines</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Mechanical%20Engineering</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Mechanical%20Engineering/chapters</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Mechanical%20Engineering/practice-questions</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Mechanical%20Engineering/chapters/Thermodynamics</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Mechanical%20Engineering/chapters/Thermodynamics/practice-questions</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Mechanical%20Engineering/chapters/Thermodynamics/topics/First%20Law</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Mechanical%20Engineering/chapters/Thermodynamics/topics/Second%20Law</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Mechanical%20Engineering/chapters/Fluid%20Mechanics</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Mechanical%20Engineering/chapters/Fluid%20Mechanics/practice-questions</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Mechanical%20Engineering/chapters/Fluid%20Mechanics/topics/Bernoulli's%20Equation</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://necexamprep.com/courses/Mechanical%20Engineering/chapters/Fluid%20Mechanics/topics/Flow%20Measurement</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
