@@ -1,20 +1,31 @@
+import React from 'react';
 
-import { bgDarkColorArray } from "../styles/constants";
-import { getRandomBetween, isStringEmpty } from "../utils/helpers";
+const GRADIENTS = [
+  'from-primary-600 to-accent-500',
+  'from-purple-600 to-primary-500',
+  'from-accent-500 to-emerald-500',
+  'from-orange-500 to-pink-500',
+  'from-indigo-600 to-cyan-500',
+];
 
-function ChapterImage({
-    initials = '--',
-    code = null
-}) {
-    const randomNumber = getRandomBetween(0, 19);
-    let bgColor = bgDarkColorArray[randomNumber];
-    if (isStringEmpty(bgColor)) {
-        bgColor = '#01130f'
-    }
+function ChapterImage({ image, title }) {
+  if (image) {
+    return (
+      <div className="rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <img src={image} alt={title} className="w-full max-h-80 object-cover" />
+      </div>
+    );
+  }
+
+  const gradientIdx = title ? title.charCodeAt(0) % GRADIENTS.length : 0;
+  const gradient    = GRADIENTS[gradientIdx];
+  const initials    = title
+    ? title.split(' ').slice(0, 2).map(w => w[0]?.toUpperCase()).join('')
+    : '?';
 
   return (
-    <div className={`bg-[${bgColor}] min-h-[160px] flex items-center justify-center`}>
-      <h1 className={`text-3xl font-bold text-[#f5f5f5]`}>{isStringEmpty(code) ? initials : code}</h1>
+    <div className={`rounded-2xl bg-gradient-to-br ${gradient} h-40 flex items-center justify-center`}>
+      <span className="text-4xl font-extrabold text-white/90 tracking-widest">{initials}</span>
     </div>
   );
 }

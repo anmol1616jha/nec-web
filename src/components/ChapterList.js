@@ -1,89 +1,108 @@
-import { MdOutlineDoubleArrow } from 'react-icons/md';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { motion } from 'framer-motion';
+import { HiBookOpen, HiArrowRight, HiClipboardDocumentList } from 'react-icons/hi2';
 import { courses } from '../data/courseData';
-import { textContent } from '../constants/textContent';
 import { SITE_URL } from '../constants/seoConfig';
-import ChapterImage from './ChapterImage';
-import { getInitials } from '../utils/helpers';
+import { ROUTES } from '../constants/routes';
+import { containerVariants, itemVariants } from '../constants/animations';
+import PageWrapper from './ui/PageWrapper';
+import Breadcrumb from './ui/Breadcrumb';
+import EmptyState from './ui/EmptyState';
+import Button from './ui/Button';
+import Badge from './ui/Badge';
 
 function ChapterList() {
   const { courseTitle } = useParams();
   const navigate = useNavigate();
+  const course = courses.find(c => c.title.toLowerCase() === decodeURIComponent(courseTitle).toLowerCase());
 
-  // Find the course by title
-  const course = courses.find(c =>
-    c.title.toLowerCase() === decodeURIComponent(courseTitle).toLowerCase()
-  );
-
-  // Handle not found
   if (!course) {
     return (
-      <div className="text-center py-10">
-        <h1 className="text-3xl font-bold mb-4">{textContent.errors.notFound}</h1>
-        <p className="mb-6">{textContent.errors.notFoundMessage}</p>
-        <button
-          onClick={() => navigate('/courses')}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded"
-        >
-          {textContent.errors.goHome}
-        </button>
-      </div>
+      <PageWrapper>
+        <EmptyState
+          title="Course Not Found"
+          description="This course doesn't exist."
+          action={<Button onClick={() => navigate(ROUTES.COURSES)}>All Courses</Button>}
+        />
+      </PageWrapper>
     );
   }
 
   return (
-    <div>
+    <PageWrapper>
       <Helmet>
-        <title>{course.title} Chapters | NEC Exam Preparation</title>
-        <meta name="description" content={`Browse all chapters of ${course.title} for the NEC licensing exam. Each chapter includes topics, MCQ practice questions, and study resources.`} />
-        <meta property="og:title" content={`${course.title} Chapters | NEC Exam Preparation`} />
+        <title>{course.title} Chapters | Nepal Engineering Council (NEC) Exam Prep</title>
+        <meta name="description" content={`Chapter-wise study guide for ${course.title} — Nepal Engineering Council (NEC) licensing exam preparation. Topics, notes, and MCQ practice questions.`} />
+        <meta property="og:title" content={`${course.title} Chapters | Nepal Engineering Council Exam Prep`} />
         <link rel="canonical" href={`${SITE_URL}/courses/${encodeURIComponent(course.title)}/chapters`} />
       </Helmet>
-      <Link
-        to={`/courses/${encodeURIComponent(course.title)}`}
-        className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-8"
-      >
-        <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-        </svg>
-        {textContent.chapterList.backToCourse}
-      </Link>
 
-      <h1 className="text-3xl font-bold mb-6">{course.title} - {textContent.chapterList.heading}</h1>
+      <Breadcrumb items={[
+        { label: 'Courses', href: ROUTES.COURSES },
+        { label: course.title, href: ROUTES.courseDetail(course.title) },
+        { label: 'Chapters' },
+      ]} />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-        <Link to={`/courses/${encodeURIComponent(course.title)}/practice-questions`} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:scale-105">
-          <div className="p-6">
-            <img
-              src={textContent.chapterList.practiceQuestionsImage}
-              alt={course.title}
-              className="w-full h-40 object-cover"
-            />
-            <div className="flex justify-between items-center mb-2 mt-2">
-              <h2 className="text-xl font-semibold mb-4">{textContent.chapterList.practiceQuestions}</h2>
-              <MdOutlineDoubleArrow />
-            </div>
-          </div>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+        <div>
+          <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-slate-50">{course.title}</h1>
+          <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">{course.chapters.length} chapters</p>
+        </div>
+        <Link
+          to={ROUTES.courseQuiz(course.title)}
+          className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-4 py-2.5 rounded-xl text-sm transition-colors shadow-sm self-start sm:self-auto"
+        >
+          <HiClipboardDocumentList className="w-4 h-4" />
+          Full Quiz
         </Link>
-
-        {course.chapters.map((chapter) => (
-          <Link
-            key={chapter.id}
-            className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:scale-105"
-            to={`/courses/${encodeURIComponent(course.title)}/chapters/${encodeURIComponent(chapter.title)}`}
-          >
-            <div className="p-6">
-              <ChapterImage initials={getInitials(chapter.title)} code={chapter?.code || null} />
-              <div className="flex justify-between items-center mb-2 mt-2">
-              <h2 className="text-xl font-semibold mb-4">{chapter.title}</h2>
-                <MdOutlineDoubleArrow />
-              </div>
-            </div>
-          </Link>
-        ))}
       </div>
-    </div>
+
+      <motion.div
+        className="space-y-3"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {course.chapters.map((chapter, idx) => {
+          const mcqCount = (chapter.topics || []).reduce((sum, t) => sum + (t.mcqs?.length || 0), 0);
+          return (
+            <motion.div key={chapter.id || idx} variants={itemVariants}>
+              <Link
+                to={ROUTES.topicList(course.title, chapter.title)}
+                className="group flex items-center gap-4 bg-white dark:bg-slate-900
+                  border border-slate-200 dark:border-slate-800 rounded-2xl p-5
+                  hover:border-primary-200 dark:hover:border-primary-800
+                  hover:shadow-card-hover transition-all duration-200"
+              >
+                <div className="flex-shrink-0 w-10 h-10 bg-primary-50 dark:bg-primary-900/30
+                  text-primary-600 dark:text-primary-400 rounded-xl flex items-center justify-center font-bold text-sm">
+                  {String(idx + 1).padStart(2, '0')}
+                </div>
+
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-semibold text-slate-900 dark:text-slate-50 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors truncate">
+                    {chapter.title}
+                  </h3>
+                  <div className="flex items-center gap-3 mt-1">
+                    <span className="text-xs text-slate-400 dark:text-slate-500 flex items-center gap-1">
+                      <HiBookOpen className="w-3.5 h-3.5" />
+                      {chapter.topics?.length || 0} topics
+                    </span>
+                    {mcqCount > 0 && (
+                      <Badge variant="primary" className="text-xs">{mcqCount} MCQs</Badge>
+                    )}
+                  </div>
+                </div>
+
+                <HiArrowRight className="w-5 h-5 text-slate-300 dark:text-slate-600 group-hover:text-primary-500 group-hover:translate-x-0.5 transition-all flex-shrink-0" />
+              </Link>
+            </motion.div>
+          );
+        })}
+      </motion.div>
+    </PageWrapper>
   );
 }
 

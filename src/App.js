@@ -15,7 +15,7 @@ function App() {
         <Router>
           <div className="flex flex-col min-h-screen">
             <NavBar />
-            <main className="flex-grow container mx-auto px-4 py-8 page-transition">
+            <main className="flex-grow container mx-auto px-4 py-8">
               <AppRoutes />
             </main>
             <Footer />

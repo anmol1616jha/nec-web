@@ -1,42 +1,37 @@
-"use client"; // Only for App Router (Next.js 13+). Remove if using Pages Router.
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { HiChevronUp } from 'react-icons/hi2';
 
-import { useState, useEffect } from "react";
-import { FaArrowAltCircleUp } from "react-icons/fa";
-
-const ScrollToTopButton = () => {
+function ScrollToTopButton() {
   const [visible, setVisible] = useState(false);
 
-  // Show button when scrolled down
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.scrollY > 200) setVisible(true);
-      else setVisible(false);
-    };
-
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    const onScroll = () => setVisible(window.scrollY > 300);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   return (
-    <>
+    <AnimatePresence>
       {visible && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 p-0.2 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 transition-all duration-300"
+        <motion.button
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{   opacity: 0, scale: 0.8 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{  scale: 0.9 }}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed bottom-6 right-6 z-50 p-3 rounded-2xl
+            bg-primary-600 hover:bg-primary-700 text-white
+            shadow-lg shadow-primary-200 dark:shadow-none
+            transition-colors duration-200"
           aria-label="Scroll to top"
         >
-          <FaArrowAltCircleUp size={40}/>
-        </button>
+          <HiChevronUp className="w-5 h-5" />
+        </motion.button>
       )}
-    </>
+    </AnimatePresence>
   );
-};
+}
 
 export default ScrollToTopButton;

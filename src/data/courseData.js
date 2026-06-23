@@ -1,3 +1,6 @@
+import { additionalComputerScienceChapters } from './csChaptersData';
+import { additionalCivilEngineeringChapters } from './civilEngineringChaptersData';
+
 export const courses = [
   {
     id: 2,
@@ -64,7 +67,8 @@ export const courses = [
             mcqs: []
           }
         ]
-      }
+      },
+      ...additionalCivilEngineeringChapters
     ],
   },
   {
@@ -2242,7 +2246,8 @@ export const courses = [
             ]
           },
         ]
-      }
+      },
+      ...additionalComputerScienceChapters
     ]
   },
   {

@@ -1,39 +1,37 @@
-// src/contexts/AppContext.js
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 
-// Create context
 const AppContext = createContext();
 
-// Context provider component
 export const AppProvider = ({ children }) => {
-  // State for tracking user preferences/settings
-  const [theme, setTheme] = useState('light');
-  
-  // Functions to update state
-  const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
-  };
-  
-  // Context value
-  const contextValue = {
-    theme,
-    toggleTheme
-  };
-  
+  const [isDark, setIsDark] = useState(() => {
+    const stored = localStorage.getItem('nec-theme');
+    if (stored) return stored === 'dark';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isDark) {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+    localStorage.setItem('nec-theme', isDark ? 'dark' : 'light');
+  }, [isDark]);
+
+  const toggleTheme = () => setIsDark(prev => !prev);
+
   return (
-    <AppContext.Provider value={contextValue}>
+    <AppContext.Provider value={{ isDark, toggleTheme }}>
       {children}
     </AppContext.Provider>
   );
 };
 
-// Custom hook for using the context
 export const useAppContext = () => {
-  const context = useContext(AppContext);
-  if (context === undefined) {
-    throw new Error('useAppContext must be used within an AppProvider');
-  }
-  return context;
+  const ctx = useContext(AppContext);
+  if (!ctx) throw new Error('useAppContext must be used within AppProvider');
+  return ctx;
 };
 
 export default AppContext;

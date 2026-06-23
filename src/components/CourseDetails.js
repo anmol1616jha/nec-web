@@ -1,105 +1,105 @@
 import React from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { HiBookOpen, HiClipboardDocumentList, HiDocumentText, HiArrowRight } from 'react-icons/hi2';
 import { courses } from '../data/courseData';
-import { textContent } from '../constants/textContent';
 import { SITE_URL } from '../constants/seoConfig';
+import { ROUTES } from '../constants/routes';
+import PageWrapper from './ui/PageWrapper';
+import Breadcrumb from './ui/Breadcrumb';
+import EmptyState from './ui/EmptyState';
+import Button from './ui/Button';
+import { Link } from 'react-router-dom';
+
+function ActionCard({ icon, title, description, to, href, variant = 'primary' }) {
+  const colors = {
+    primary: 'from-primary-500 to-primary-700',
+    accent:  'from-accent-500 to-accent-700',
+    slate:   'from-slate-600 to-slate-800',
+  };
+  const inner = (
+    <div className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${colors[variant]} p-6 h-full text-white hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5`}>
+      <div className="text-3xl mb-3 opacity-90">{icon}</div>
+      <h3 className="font-bold text-lg mb-1">{title}</h3>
+      <p className="text-white/70 text-sm leading-relaxed">{description}</p>
+      <HiArrowRight className="absolute bottom-5 right-5 w-5 h-5 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+    </div>
+  );
+  if (href) return <a href={href} target="_blank" rel="noopener noreferrer" className="block h-full">{inner}</a>;
+  return <Link to={to} className="block h-full">{inner}</Link>;
+}
 
 function CourseDetails() {
   const { courseTitle } = useParams();
   const navigate = useNavigate();
+  const course = courses.find(c => c.title.toLowerCase() === decodeURIComponent(courseTitle).toLowerCase());
 
-  // Find the course by title
-  const course = courses.find(c =>
-    c.title.toLowerCase() === decodeURIComponent(courseTitle).toLowerCase()
-  );
-
-  // Handle not found
   if (!course) {
     return (
-      <div className="text-center py-10">
-        <h1 className="text-3xl font-bold mb-4">{textContent.errors.notFound}</h1>
-        <p className="mb-6">{textContent.errors.notFoundMessage}</p>
-        <button
-          onClick={() => navigate('/courses')}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded"
-        >
-          {textContent.errors.goHome}
-        </button>
-      </div>
+      <PageWrapper>
+        <EmptyState
+          title="Course Not Found"
+          description="We couldn't find that course."
+          action={<Button onClick={() => navigate(ROUTES.COURSES)}>Back to Courses</Button>}
+        />
+      </PageWrapper>
     );
   }
 
-  // Handle external resource (PDF) opening
-  const openPdfInNewTab = (url) => {
-    window.open(url, '_blank');
-  };
+  const mcqCount = course.chapters.reduce((sum, ch) =>
+    sum + (ch.topics || []).reduce((ts, t) => ts + (t.mcqs?.length || 0), 0), 0);
 
   return (
-    <div>
+    <PageWrapper>
       <Helmet>
-        <title>{course.title} | NEC Exam Preparation</title>
-        <meta name="description" content={`Study ${course.title} for the Nepal Engineering Council licensing exam. Access chapter-wise notes, syllabus, MCQ practice questions, and video lectures.`} />
-        <meta property="og:title" content={`${course.title} | NEC Exam Preparation`} />
-        <meta property="og:description" content={course.description} />
-        <meta property="og:image" content={course.image} />
+        <title>{course.title} | Nepal Engineering Council (NEC) Exam Preparation</title>
+        <meta name="description" content={`Study ${course.title} for the Nepal Engineering Council (NEC) licensing exam. Browse chapters, practice MCQs, and download the official syllabus.`} />
+        <meta property="og:title" content={`${course.title} | Nepal Engineering Council Exam Prep`} />
+        <meta property="og:description" content={`${course.title} study guide for the Nepal Engineering Council (NEC) licensing exam — chapters, MCQs, and syllabus.`} />
         <link rel="canonical" href={`${SITE_URL}/courses/${encodeURIComponent(course.title)}`} />
       </Helmet>
-      <Link
-        to="/courses"
-        className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-8"
-      >
-        <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-        </svg>
-        {textContent.courseDetails.back}
-      </Link>
 
-      <div className="bg-white rounded-lg shadow-md overflow-hidden">
-        <div className="p-6">
-          <h1 className="text-3xl font-bold mb-4">{course.title}</h1>
-          <p className="text-gray-600 mb-6">{course.description}</p>
+      <Breadcrumb items={[{ label: 'Courses', href: ROUTES.COURSES }, { label: course.title }]} />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <button
-              onClick={() => openPdfInNewTab(course.syllabusLink)}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded transition-colors duration-300 text-center"
-            >
-              <img
-                src={textContent.courseDetails.syllabusImage}
-                alt={textContent.courseDetails.syllabus}
-                className="w-full h-40 object-cover"
-              />
-              {textContent.courseDetails.syllabus}
-            </button>
-
-            {course?.modelQuestionPaperLink && <button
-              onClick={() => openPdfInNewTab(course.modelQuestionPaperLink)}
-              className="bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-4 rounded transition-colors duration-300 text-center"
-            >
-              <img
-                src={textContent.courseDetails.modelPaperImage}
-                alt={textContent.courseDetails.modelPaper}
-                className="w-full h-40 object-cover"
-              />
-              {textContent.courseDetails.modelPaper}
-            </button>}
-
-            <Link
-              to={`/courses/${encodeURIComponent(course.title)}/chapters`}
-              className="bg-[#ad6d9b] hover:bg-[#ad5093] text-white font-medium py-3 px-4 rounded transition-colors duration-300 text-center"
-            >
-              <img
-                src={textContent.courseDetails.chaptersImage}
-                alt={textContent.courseDetails.chapters}
-                className="w-full h-40 object-cover"
-              />
-              {textContent.courseDetails.chapters}
-            </Link>
+      {/* Hero banner */}
+      <div className="relative rounded-3xl overflow-hidden mb-10 h-56 md:h-64">
+        <img src={course.image} alt={course.title} className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+        <div className="absolute inset-0 flex flex-col justify-end p-8">
+          <h1 className="text-3xl md:text-4xl font-extrabold text-white mb-2">{course.title}</h1>
+          <p className="text-white/80 text-sm max-w-md">{course.description}</p>
+          <div className="flex gap-4 mt-3">
+            <span className="text-white/70 text-xs">{course.chapters.length} Chapters</span>
+            {mcqCount > 0 && <span className="text-white/70 text-xs">{mcqCount} MCQs</span>}
           </div>
         </div>
       </div>
-    </div>
+
+      {/* Action cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <ActionCard
+          icon={<HiBookOpen />}
+          title="Chapter-wise Study"
+          description="Browse all chapters with topics, notes, and video resources."
+          to={ROUTES.chapters(course.title)}
+          variant="primary"
+        />
+        <ActionCard
+          icon={<HiClipboardDocumentList />}
+          title="Practice MCQs"
+          description={`Test yourself with ${mcqCount || 'all'} practice questions from this course.`}
+          to={ROUTES.courseQuiz(course.title)}
+          variant="accent"
+        />
+        <ActionCard
+          icon={<HiDocumentText />}
+          title="Syllabus PDF"
+          description="Download the official NEC syllabus for this course."
+          href={course.syllabusLink}
+          variant="slate"
+        />
+      </div>
+    </PageWrapper>
   );
 }
 
